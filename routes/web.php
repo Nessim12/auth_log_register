@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\MasterController;
+use App\Models\Admin;
+use App\Models\master;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,25 +17,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $mas = master::all();
+    return view('dashboard',compact('mas'));
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
 
 Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
+    $etd = User::all();
+    $mas = master::all();
+    // dd($etd);
+    return view('admin.dashboard',compact('etd'),compact('mas'));
+    
+
 })->middleware(['auth:admin'])->name('admin.dashboard');
 
 require __DIR__.'/adminauth.php';
 
-Route::get('/test', function () {
+Route::get('/', function () {
     return view('home');
 });
-
-
+Route::resource('master',MasterController::class);

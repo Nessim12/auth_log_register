@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Adminauth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\master;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -50,4 +51,5 @@ class RegisteredUserController extends Controller
         Auth::guard('admin')->login($user);
 
     }
+
 }

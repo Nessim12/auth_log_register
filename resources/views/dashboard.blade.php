@@ -169,11 +169,27 @@ https://templatemo.com/tm-587-tiya-golf-club
 <!-- section1 -->
             <section class="about-section section-padding" id="section_2">
                 <div class="container">
-                    
                 </div>
             </section>
 <!-- section1 -->
+<h2>Les Master disponible</h2>
+<table class="table" border="1">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>description</th>
+      </tr>
 
+    </thead>
+    <tbody>
+@foreach($mas as $b)
+      <tr>
+        <td>{{$b->nom}}</td>
+        <td>{{$b->description}}</td>
+</tr>
+@endforeach
+    </tbody>
+  </table>
            
 
 <!-- section1 -->

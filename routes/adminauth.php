@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Adminauth\AuthenticatedSessionController;
 use App\Http\Controllers\Adminauth\RegisteredUserController;
+use App\Http\Controllers\masterController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['guest:admin'],'prefix'=>'admin','as'=>'admin.'],function(){
@@ -10,6 +11,7 @@ Route::group(['middleware' => ['guest:admin'],'prefix'=>'admin','as'=>'admin.'],
                 ->name('register');
 
     Route::post('register', [RegisteredUserController::class, 'store']);
+
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');
@@ -25,3 +27,4 @@ Route::group(['middleware' => ['auth:admin'],'prefix'=>'admin','as'=>'admin.'],f
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 });
+

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <meta name="description" content="">
         <meta name="author" content="">
 
@@ -115,8 +115,81 @@ https://templatemo.com/tm-587-tiya-golf-club
 
 <!-- Login bar -->
             
-            <!-- register bar -->
+            <!-- register bar --> 
+            {{-- <div class="modal fade"  tabindex="-1" id="offcanvasExample5" aria-labelledby="offcanvasExampleLabel">                
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Update Master</h5>
+                    
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+            <div class="offcanvas-body d-flex flex-column">
+                <form class="custom-form member-login-form" action="" method="post" role="form">
+                    @csrf
+                    <div class="member-login-form-body">
+                        <div class="mb-4">
+                            <label class="form-label mb-2" for="member-login-number">Nom</label>
+
+                            <input type="text" name="nom" id="nom" class="form-control"  required />
+                            
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label mb-2" for="member-login-password">Description</label>
+                            <input type="text" name="description" id="description"  pattern="[0-9a-zA-Z]{4,10}" class="form-control"  required=""/>
+                           
+                        </div>
+                 
+                            <div class="col-lg-5 col-md-7 col-8 mx-auto">
+                                <button type="submit" class="form-control">Update</button>
+                            </div> --}}
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Update master</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="custom-form member-login-form" action="" method="patch" role="form">
+                                            @csrf
+                                            <input type="hidden" id="ma_id" name="ma_id"/>
+                                            <div class="member-login-form-body">
+                                                <div class="mb-4">
+                                                    <label class="form-label mb-2" for="member-login-number">Nom</label>
+                        
+                                                    <input type="text" name="nom" id="nom" class="form-control"  required />
+                                                    
+                                                </div>
+                        
+                                                <div class="mb-4">
+                                                    <label class="form-label mb-2" for="member-login-password">Description</label>
+                                                    <input type="text" name="description" id="description"  pattern="[0-9a-zA-Z]{4,10}" class="form-control"  required=""/>
+                                                   
+                                                </div>
+                                         
+                                                    <div class="col-lg-5 col-md-7 col-8 mx-auto">
+                                                        <button type="submit" class="form-control">Update</button>
+                                                    </div>
+                                    </div>
+                                        </form>
+                                  </div>
+                                </div>
+                              </div>
+                        
             
+
+                        
+                       
+
+    
+                    </div>
+                </form>
+
+                
+            </div>
+
+            
+        </div>
             <!-- register bar -->
 <!-- section1 -->
             <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
@@ -126,7 +199,7 @@ https://templatemo.com/tm-587-tiya-golf-club
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg>
 
                 <div class="container">
-                    <div class="row">
+                    <div class="row">             
 
                  
                                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -148,7 +221,22 @@ https://templatemo.com/tm-587-tiya-golf-club
 <!-- section1 -->
             <section class="about-section section-padding" id="section_2">
                 <div class="container">
+                    <h2>Ajouter Master</h2>
+                    <form action="{{route('master.store')}}" method="post">
+                        @csrf
+                        <div class="mb-3 mt-3">
+                          <label for="titre" class="form-label">Nom</label>
+                          <input type="titre" class="form-control" id="nom"  name="nom">
+                        </div>
+                        <div class="mb-3">
+                          <label for="description" class="form-label">description</label>
+                          <input type="text" class="form-control" id="description"  name="description">
+                        </div>
+                      
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                      </form>
                     
+
                 </div>
             </section>
 <!-- section1 -->
@@ -158,10 +246,47 @@ https://templatemo.com/tm-587-tiya-golf-club
 <!-- section1 -->
             <section class="membership-section section-padding" id="section_3">
                 <div class="container">
+                    <table class="table" border="1">
+                        <thead>
+                            <h2>les Master</h2>
+                          <tr>
+                            <th>Nom</th>
+                            <th>description</th>
+                            <th>affiché</th>
+                            <th>modifier</th>
+                            <th>supprimer</th>
+
+                          </tr>
                     
+                        </thead>
+                        <tbody>
+                    @foreach($mas as $b)
+                          <tr>
+                            <td>{{$b->nom}}</td>
+                            <td>{{$b->description}}</td>
+                            <td></td>
+                            <td>
+                            {{-- <button type="button" value="{{$b->id}}" class="btn btn-success editbtn ">Modifier</button> --}}
+                                <a   href="{{route('master.edit',$b['id'])}}"  class="btn btn-success"> Modifier </a>
+                                {{-- <a   href="#exampleModal"  class="btn btn-success editbtn"> Modifier </a> --}}
+                            </td>
+                            <td>
+                                <form action="{{route('master.destroy',$b['id'])}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn  btn-danger"> Supprimer</button> 
+                                </form>
+                            </td>
+                    </tr>
+                    @endforeach
+                        </tbody>
+                      </table>
+                   
+
                 </div>
             </section>
 <!-- section1 -->
+
 <!-- section1 -->
             <section class="events-section section-bg section-padding" id="section_4">
                 <div class="container">
@@ -172,7 +297,32 @@ https://templatemo.com/tm-587-tiya-golf-club
 <!-- section1 -->
             <section class="contact-section section-padding" id="section_5">
                 <div class="container">
+                    <table class="table" border="1">
+                        <thead>
+                          <tr>
+                            <th>Cin</th>
+                            <th>Email</th>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Tel</th>
+                            <th>Adresse</th>
+                          </tr>
                     
+                        </thead>
+                        <tbody>
+                    @foreach($etd as $a)
+                          <tr>
+                            <td>{{$a->cin}}</td>
+                            <td>{{$a->email}}</td>
+                            <td>{{$a->Nom}}</td>
+                            <td>{{$a->Prenom}}</td>
+                            <td>{{$a->Tel}}</td>
+                            <td>{{$a->Adresse}}</td>
+                    </tr>
+                    @endforeach
+                        </tbody>
+                      </table>
+                   
                 </div>
             </section>
         </main>
@@ -198,7 +348,6 @@ https://templatemo.com/tm-587-tiya-golf-club
         <script src="../js/js2//animated-headline.js"></script>
         <script src="../js/js2//modernizr.js"></script>
         <script src="../js/js2//custom.js"></script>
-
     </body>
 </html>
 

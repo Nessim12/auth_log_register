@@ -22,6 +22,7 @@ class RegisteredUserController extends Controller
     {
         return view('auth.register');
     }
+ 
 
     /**
      * Handle an incoming registration request.
@@ -51,7 +52,10 @@ class RegisteredUserController extends Controller
             'Adresse' => $request->Adresse,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+          
+            
         ]);
+
 
         event(new Registered($user));
 
